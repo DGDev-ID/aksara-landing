@@ -59,7 +59,7 @@ defineProps<{
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/6281234567890?text=Halo%20Aksara%20Media%2C%20saya%20ingin%20konsultasi"
+              href="https://wa.me/628988758080?text=Halo%20Aksara%20Media%2C%20saya%20ingin%20konsultasi"
               target="_blank"
               class="btn-white"
             >

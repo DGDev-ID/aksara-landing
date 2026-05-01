@@ -116,7 +116,8 @@ const quickLinks = [
                 <MapPin :size="14" class="text-blue-400" />
               </div>
               <p class="text-gray-400 text-sm leading-relaxed">
-                Jl. Magelang No. 45, Sinduadi, Mlati, Sleman, Yogyakarta 55284
+                Gang kelapa gading, RT.02/RW.01, Wates, Kec. Ngaliyan, Kota Semarang, Jawa Tengah
+                50188
               </p>
             </div>
             <div class="flex items-center gap-3">
@@ -126,10 +127,10 @@ const quickLinks = [
                 <Phone :size="14" class="text-blue-400" />
               </div>
               <a
-                href="tel:+6281234567890"
+                href="tel:+628988758080"
                 class="text-gray-400 hover:text-blue-400 text-sm transition-colors"
               >
-                +62 812-3456-7890
+                +62 898-8758-080
               </a>
             </div>
             <div class="flex items-center gap-3">

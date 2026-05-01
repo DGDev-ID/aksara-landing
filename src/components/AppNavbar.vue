@@ -89,7 +89,7 @@ const isActive = (path: string) => {
         <!-- CTA Button -->
         <div class="hidden lg:flex items-center gap-3">
           <a
-            href="https://wa.me/6281234567890?text=Halo%20Aksara%20Media%2C%20saya%20ingin%20konsultasi"
+            href="https://wa.me/628988758080?text=Halo%20Aksara%20Media%2C%20saya%20ingin%20konsultasi"
             target="_blank"
             class="btn-primary text-sm px-5 py-2.5"
           >
@@ -140,7 +140,7 @@ const isActive = (path: string) => {
           </RouterLink>
           <div class="pt-3 pb-2 border-t border-gray-100 mt-3">
             <a
-              href="https://wa.me/6281234567890?text=Halo%20Aksara%20Media%2C%20saya%20ingin%20konsultasi"
+              href="https://wa.me/628988758080?text=Halo%20Aksara%20Media%2C%20saya%20ingin%20konsultasi"
               target="_blank"
               class="btn-primary w-full justify-center text-sm"
             >

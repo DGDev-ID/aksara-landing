@@ -44,11 +44,7 @@ onMounted(() => {
           maupun offline.
         </p>
       </div>
-      <div class="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 60" fill="white" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 60L1440 60L1440 20C1200 60 960 0 720 20C480 40 240 0 0 20L0 60Z" />
-        </svg>
-      </div>
+      <div class="absolute bottom-0 left-0 right-0 h-0.75 bg-white/20"></div>
     </section>
 
     <!-- Services Grid -->

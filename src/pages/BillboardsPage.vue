@@ -173,29 +173,27 @@ onMounted(() => {
 
     <!-- Main Content: Map + Sidebar -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-      <div
-        class="flex flex-col lg:flex-row gap-6"
-        style="height: calc(100vh - 220px); min-height: 600px"
-      >
-        <!-- Sidebar -->
-        <div class="lg:w-96 shrink-0 overflow-y-auto">
-          <BillboardSidebar
-            :billboards="filteredBillboards"
-            :selected-id="selectedId"
-            @select="selectedId = $event"
-            @deselect="selectedId = null"
-          />
-        </div>
-
-        <!-- Map -->
+      <!-- Mobile: stack vertically (map first, then list) -->
+      <!-- Desktop: side-by-side with fixed viewport height -->
+      <div class="flex flex-col lg:flex-row lg:gap-6 lg:h-[calc(100vh-220px)] lg:min-h-150">
+        <!-- Map — mobile: fixed height 320px, desktop: flex-1 -->
         <div
-          class="flex-1 rounded-2xl overflow-hidden shadow-xl border border-gray-200"
-          style="min-height: 500px"
+          class="w-full h-80 lg:h-auto lg:flex-1 rounded-2xl overflow-hidden shadow-xl border border-gray-200 mb-4 lg:mb-0 order-1 lg:order-2"
         >
           <BillboardMap
             :billboards="filteredBillboards"
             :selected-id="selectedId"
             @select="selectedId = $event"
+          />
+        </div>
+
+        <!-- Sidebar — mobile: max-height scrollable, desktop: fixed width scrollable -->
+        <div class="lg:w-96 shrink-0 overflow-y-auto max-h-[70vh] lg:max-h-none order-2 lg:order-1">
+          <BillboardSidebar
+            :billboards="filteredBillboards"
+            :selected-id="selectedId"
+            @select="selectedId = $event"
+            @deselect="selectedId = null"
           />
         </div>
       </div>
@@ -242,7 +240,7 @@ onMounted(() => {
             </p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20konsultasi%20lokasi%20billboard"
+                href="https://wa.me/628988758080?text=Halo%2C%20saya%20ingin%20konsultasi%20lokasi%20billboard"
                 target="_blank"
                 class="btn-white"
               >

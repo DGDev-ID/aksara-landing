@@ -15,15 +15,16 @@ const contactInfo = [
   {
     icon: 'MapPin',
     label: 'Alamat Kantor',
-    value: 'Jl. Magelang No. 45, Sinduadi, Mlati, Sleman, Yogyakarta 55284',
-    link: 'https://maps.google.com',
+    value:
+      'Gang kelapa gading, RT.02/RW.01, Wates, Kec. Ngaliyan, Kota Semarang, Jawa Tengah 50188',
+    link: 'https://maps.app.goo.gl/aksara',
     linkLabel: 'Lihat di Maps',
   },
   {
     icon: 'Phone',
     label: 'WhatsApp / Telepon',
-    value: '+62 812-3456-7890',
-    link: 'https://wa.me/6281234567890',
+    value: '+62 898-8758-080',
+    link: 'https://wa.me/628988758080',
     linkLabel: 'Chat WhatsApp',
   },
   {
@@ -106,7 +107,7 @@ const contactInfo = [
                 hitungan menit.
               </p>
               <a
-                href="https://wa.me/6281234567890?text=Halo%20Aksara%20Media%2C%20saya%20ingin%20konsultasi%20promosi%20bisnis%20saya"
+                href="https://wa.me/628988758080?text=Halo%20Aksara%20Media%2C%20saya%20ingin%20konsultasi%20promosi%20bisnis%20saya"
                 target="_blank"
                 class="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-5 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30 text-sm"
               >
@@ -161,7 +162,7 @@ const contactInfo = [
               style="height: 220px"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.3!2d110.3681!3d-7.7448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDQnNDEuMyJTIDExMMKwMjInMDUuMiJF!5e0!3m2!1sid!2sid!4v1"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.9792969201253!2d110.33533380000002!3d-7.019575099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b0007249dd3%3A0x65866bef7f46b4d1!2sAKSARA%20MEDIA%20PROMOSI!5e1!3m2!1sen!2sid!4v1777612694259!5m2!1sen!2sid"
                 width="100%"
                 height="100%"
                 style="border: 0"

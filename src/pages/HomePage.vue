@@ -113,14 +113,17 @@ onMounted(() => {
               billboard & videotron outdoor. Satu partner, semua solusi promosi bisnis Anda.
             </p>
 
-            <div class="flex flex-wrap gap-4 mb-10">
-              <RouterLink to="/contact" class="btn-white text-base px-7 py-3.5">
+            <div class="flex flex-col sm:flex-row gap-4 mb-10">
+              <RouterLink
+                to="/contact"
+                class="btn-white text-base px-7 py-3.5 w-full sm:w-auto justify-center"
+              >
                 <ArrowRight :size="20" />
                 Mulai Konsultasi Gratis
               </RouterLink>
               <RouterLink
                 to="/portfolio"
-                class="flex items-center gap-2 text-white font-semibold text-base px-7 py-3.5 rounded-xl border-2 border-white/30 hover:bg-white/10 transition-all"
+                class="flex items-center justify-center gap-2 text-white font-semibold text-base px-7 py-3.5 rounded-xl border-2 border-white/30 hover:bg-white/10 transition-all w-full sm:w-auto"
               >
                 <Play :size="18" />
                 Lihat Portfolio
@@ -128,10 +131,10 @@ onMounted(() => {
             </div>
 
             <!-- Stats row -->
-            <div class="flex flex-wrap gap-8">
+            <div class="grid grid-cols-4 gap-4">
               <div v-for="stat in stats" :key="stat.label">
-                <div class="text-3xl font-black text-white">{{ stat.number }}</div>
-                <div class="text-blue-300 text-sm font-medium">{{ stat.label }}</div>
+                <div class="text-2xl sm:text-3xl font-black text-white">{{ stat.number }}</div>
+                <div class="text-blue-300 text-xs sm:text-sm font-medium">{{ stat.label }}</div>
               </div>
             </div>
           </div>
