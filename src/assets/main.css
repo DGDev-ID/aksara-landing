@@ -83,7 +83,7 @@ body {
 
 /* ===== GRADIENT BG ===== */
 .gradient-bg {
-  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #1d4ed8 100%);
+  background: linear-gradient(160deg, #0f172a 0%, #1e3a8a 70%, #2563eb 100%);
 }
 
 .gradient-bg-light {
