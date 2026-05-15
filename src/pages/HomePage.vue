@@ -42,14 +42,19 @@ const whyUs = [
 ]
 
 const clients = [
-  'Pemda DIY',
-  'BRI',
-  'Telkom',
-  'Indomaret',
-  'Yamaha',
-  'Honda',
-  'Bank Jateng',
-  'Dinas Pariwisata',
+  { name: 'AQUA', logo: '/logo-klien/AQUA.svg' },
+  { name: 'BNI', logo: '/logo-klien/BNI.svg' },
+  { name: 'BRI', logo: '/logo-klien/BRI.svg' },
+  { name: 'Ciputra', logo: '/logo-klien/CIPUTRA.svg' },
+  { name: 'Esse', logo: '/logo-klien/ESSE.svg' },
+  { name: 'G-Media', logo: '/logo-klien/GMEDIA.svg' },
+  { name: 'Indofood', logo: '/logo-klien/INDOFOOD.svg' },
+  { name: 'JAPFA', logo: '/logo-klien/JAPFA.svg' },
+  { name: 'Mandiri', logo: '/logo-klien/MANDIRI.svg' },
+  { name: 'Olympic', logo: '/logo-klien/OLYMPIC.svg' },
+  { name: 'Pegadaian', logo: '/logo-klien/PEGADAIAN.svg' },
+  { name: 'Traveloka', logo: '/logo-klien/TRAVELOKA.svg' },
+  { name: 'Undip', logo: '/logo-klien/UNDIP.svg' },
 ]
 
 // Intersection Observer for fade-in
@@ -75,6 +80,29 @@ onMounted(() => {
       class="relative min-h-screen flex items-center overflow-hidden"
       style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 40%, #2563eb 100%)"
     >
+      <!-- Background SVG utama -->
+      <img
+        src="/bg-utama.svg"
+        alt=""
+        aria-hidden="true"
+        class="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+        style="z-index: 0; opacity: 0.55; mix-blend-mode: luminosity"
+      />
+
+      <!-- Blue gradient overlay agar warna biru tetap terasa tapi SVG masih terlihat -->
+      <div
+        class="absolute inset-0 pointer-events-none"
+        style="
+          background: linear-gradient(
+            135deg,
+            rgba(15, 23, 42, 0.72) 0%,
+            rgba(30, 58, 138, 0.55) 40%,
+            rgba(37, 99, 235, 0.45) 100%
+          );
+          z-index: 1;
+        "
+      ></div>
+
       <!-- Three.js 3D Canvas -->
       <HeroCanvas />
 
@@ -347,15 +375,20 @@ onMounted(() => {
     <section class="py-14 bg-gray-50 border-y border-gray-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <p class="text-center text-gray-400 text-sm font-semibold uppercase tracking-widest mb-8">
-          Dipercaya oleh 180+ klien
+          Dipercaya oleh Berbagai Brand Ternama
         </p>
         <div class="flex flex-wrap items-center justify-center gap-6">
           <div
             v-for="client in clients"
-            :key="client"
-            class="bg-white px-6 py-3 rounded-xl border border-gray-200 text-gray-500 font-bold text-sm hover:border-blue-300 hover:text-blue-600 hover:shadow-md transition-all cursor-default"
+            :key="client.name"
+            class="bg-white px-5 py-4 rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all cursor-default flex items-center justify-center"
+            style="min-width: 110px; height: 64px"
           >
-            {{ client }}
+            <img
+              :src="client.logo"
+              :alt="client.name"
+              class="max-h-8 max-w-24 object-contain transition-all duration-300 hover:scale-110"
+            />
           </div>
         </div>
       </div>

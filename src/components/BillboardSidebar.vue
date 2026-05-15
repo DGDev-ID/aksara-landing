@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Billboard } from '@/data/billboards'
-import { MapPin, Ruler, DollarSign, ChevronRight } from 'lucide-vue-next'
+import { MapPin, Ruler, ChevronRight } from 'lucide-vue-next'
 
 defineProps<{
   billboards: Billboard[]
@@ -86,10 +86,6 @@ const statusStyle: Record<string, { dot: string; text: string; bg: string }> = {
               <div class="flex items-center gap-1 text-xs text-gray-500">
                 <Ruler :size="11" />
                 {{ b.size }}
-              </div>
-              <div class="flex items-center gap-1 text-xs font-semibold text-blue-600">
-                <DollarSign :size="11" />
-                {{ b.price }}
               </div>
             </div>
           </div>

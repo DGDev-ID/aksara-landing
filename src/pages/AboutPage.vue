@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { Target, Eye, Heart, CheckCircle } from 'lucide-vue-next'
+import { Target, Eye, CheckCircle } from 'lucide-vue-next'
 import CTASection from '@/components/CTASection.vue'
 import { stats, teamMembers } from '@/data/content'
 
@@ -74,7 +74,7 @@ onMounted(() => {
         </h1>
         <p class="text-blue-100 text-lg max-w-2xl mx-auto leading-relaxed">
           Lebih dari sekadar agency — kami adalah partner pertumbuhan bisnis Anda yang terpercaya
-          sejak 2016.
+          sejak 2019.
         </p>
       </div>
       <div class="absolute bottom-0 left-0 right-0 h-0.75 bg-white/20"></div>
@@ -82,29 +82,28 @@ onMounted(() => {
 
     <!-- Company Intro -->
     <section class="section-padding bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-2 gap-16 items-center fade-in-up">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-up">
+        <!-- Top: Heading + desc kiri + Stats kanan -->
+        <div class="grid lg:grid-cols-2 gap-12 items-start mb-10">
           <div>
             <span class="text-blue-600 font-bold text-sm uppercase tracking-widest"
-              >Cerita Kami</span
+              >Tentang Kami</span
             >
             <h2 class="text-4xl font-extrabold text-gray-900 mt-2 mb-5">
-              Lahir dari Semangat <span class="gradient-text">Memajukan Bisnis Lokal</span>
+              Muda, Kreatif, <span class="gradient-text">dan Penuh Energi</span>
             </h2>
-            <p class="text-gray-600 leading-relaxed mb-5">
-              Aksara Media Promosi lahir pada tahun 2016 dengan visi sederhana namun kuat: membantu
-              pelaku bisnis di Indonesia menjangkau pasar yang lebih luas melalui strategi promosi
-              yang tepat, kreatif, dan efisien.
-            </p>
-            <p class="text-gray-600 leading-relaxed mb-5">
-              Berawal dari layanan desain grafis dan percetakan, kami terus berkembang mengikuti
-              dinamika industri. Kini Aksara menjadi one-stop agency yang menyediakan layanan
-              digital marketing, branding, web development, hingga jaringan billboard outdoor
-              terluas di Jawa Tengah & DIY.
+            <p class="text-gray-600 leading-relaxed mb-4">
+              Berdiri sejak 2019 di Semarang, Aksara Media Promosi hadir sebagai mitra terpercaya
+              dalam industri reklame. Kami mengedepankan profesionalisme dan integritas tinggi dalam
+              setiap detail pengerjaan. Bagi kami, ketelitian dan ketepatan waktu bukan sekadar
+              janji, melainkan standar kualitas untuk memberikan hasil terbaik bagi representasi
+              bisnis Anda.
             </p>
             <p class="text-gray-600 leading-relaxed">
-              Dengan tim yang berpengalaman, pendekatan yang data-driven, dan komitmen pada hasil
-              nyata, kami bangga telah melayani 180+ klien dari berbagai latar belakang industri.
+              Aksara Media Promosi adalah wadah kolaborasi kreatif yang digerakkan oleh energi muda
+              berbakat. Didukung oleh desainer inovatif dan tim lapangan yang kompeten, kami
+              berkomitmen mentransformasikan setiap visi konsumen menjadi nyata dengan hasil yang
+              presisi dan adaptif terhadap perkembangan tren.
             </p>
           </div>
           <!-- Stats -->
@@ -112,11 +111,40 @@ onMounted(() => {
             <div
               v-for="stat in stats"
               :key="stat.label"
-              class="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-6 text-center border border-blue-100 card-hover"
+              class="bg-linear-to-br from-blue-50 to-blue-100/50 rounded-2xl p-6 text-center border border-blue-100 card-hover"
             >
               <div class="text-4xl font-black gradient-text mb-2">{{ stat.number }}</div>
               <div class="text-gray-700 font-semibold text-sm">{{ stat.label }}</div>
             </div>
+          </div>
+        </div>
+
+        <!-- Bottom: Deskripsi lanjutan 2 kolom -->
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <p class="text-gray-600 leading-relaxed">
+              Aksara Media Promosi hadir sebagai mitra strategis solusi periklanan terpadu,
+              spesialis dalam layanan <strong>OOH (Out-of-Home)</strong> dan
+              <strong>Digital Printing</strong> berkualitas tinggi. Dengan jangkauan luas yang
+              mencakup wilayah <strong>Semarang, Jawa Tengah, DIY dan sekitarnya</strong>. Kami
+              berkomitmen menghadirkan visibilitas brand yang maksimal melalui eksekusi materi
+              promosi yang presisi dan berdampak luas.
+            </p>
+          </div>
+          <div>
+            <p class="text-gray-600 leading-relaxed mb-5">
+              Ubah audiens menjadi pelanggan dengan visibilitas tanpa batas. Aksara Media Promosi
+              menawarkan titik-titik iklan paling strategis dengan
+              <strong>high-traffic exposure</strong> yang menjamin <em>brand</em> Anda selalu
+              menjadi pusat perhatian melalui jaringan <strong>Billboard</strong> dan
+              <strong>Videotron</strong> di titik-titik lokasi premium. Dari kejauhan Billboard
+              hingga dinamisnya Videotron, kami memastikan pesan <em>brand</em> Anda tersampaikan
+              secara masif dan meninggalkan impresi mendalam bagi setiap mata yang memandang.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              Kami tidak hanya mencetak ide, kami menghidupkannya. Jelajahi portofolio kami dan
+              lihat bagaimana kami mengubah konsep menjadi visual yang mendominasi ruang publik.
+            </p>
           </div>
         </div>
       </div>
@@ -165,15 +193,15 @@ onMounted(() => {
     <!-- Visi Misi -->
     <section class="section-padding bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-3 gap-6 fade-in-up">
+        <div class="grid md:grid-cols-2 gap-6 fade-in-up">
           <div class="gradient-bg rounded-2xl p-8 text-white">
             <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4">
               <Eye :size="24" class="text-white" />
             </div>
             <h3 class="text-xl font-bold mb-3">Visi</h3>
             <p class="text-blue-100 leading-relaxed text-sm">
-              Menjadi agency media promosi terdepan di Indonesia yang menghubungkan bisnis dengan
-              peluang pasar melalui solusi kreatif dan teknologi digital terkini.
+              "Menjadi katalisator utama dalam transformasi ide kreatif menjadi dampak nyata yang
+              menghubungkan brand dengan audiens secara bermakna di era digital."
             </p>
           </div>
           <div class="bg-gray-950 rounded-2xl p-8 text-white">
@@ -184,43 +212,25 @@ onMounted(() => {
             <ul class="text-gray-300 text-sm space-y-2">
               <li class="flex items-start gap-2">
                 <CheckCircle :size="14" class="text-blue-400 mt-0.5 shrink-0" />
-                Memberikan solusi promosi yang inovatif dan terukur
+                Menciptakan strategi promosi yang unik, relevan, dan <em>out-of-the-box</em>.
               </li>
               <li class="flex items-start gap-2">
                 <CheckCircle :size="14" class="text-blue-400 mt-0.5 shrink-0" />
-                Membangun kepercayaan klien melalui transparansi
+                Memanfaatkan data dan teknologi terkini untuk mengoptimalkan jangkauan kampanye dan
+                nilai jual brand.
               </li>
               <li class="flex items-start gap-2">
                 <CheckCircle :size="14" class="text-blue-400 mt-0.5 shrink-0" />
-                Mengembangkan talenta kreatif lokal Indonesia
+                Memberikan layanan konsultasi pemasaran yang berbasis data dan riset pasar mendalam.
               </li>
               <li class="flex items-start gap-2">
                 <CheckCircle :size="14" class="text-blue-400 mt-0.5 shrink-0" />
-                Menghadirkan media outdoor berkualitas premium
+                Memastikan setiap investasi iklan klien menghasilkan dampak pertumbuhan bisnis yang
+                signifikan.
               </li>
-            </ul>
-          </div>
-          <div class="bg-blue-50 rounded-2xl p-8">
-            <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4">
-              <Heart :size="24" class="text-white" />
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Nilai Kami</h3>
-            <ul class="text-gray-600 text-sm space-y-2">
-              <li class="flex items-center gap-2">
-                <div class="w-2 h-2 rounded-full bg-blue-500 shrink-0"></div>
-                <strong>Integritas</strong> dalam setiap komitmen
-              </li>
-              <li class="flex items-center gap-2">
-                <div class="w-2 h-2 rounded-full bg-blue-500 shrink-0"></div>
-                <strong>Inovasi</strong> tanpa henti
-              </li>
-              <li class="flex items-center gap-2">
-                <div class="w-2 h-2 rounded-full bg-blue-500 shrink-0"></div>
-                <strong>Kolaborasi</strong> yang produktif
-              </li>
-              <li class="flex items-center gap-2">
-                <div class="w-2 h-2 rounded-full bg-blue-500 shrink-0"></div>
-                <strong>Hasil</strong> yang dapat diukur
+              <li class="flex items-start gap-2">
+                <CheckCircle :size="14" class="text-blue-400 mt-0.5 shrink-0" />
+                Mengutamakan kualitas produksi dan ketepatan waktu dalam setiap proyek.
               </li>
             </ul>
           </div>
