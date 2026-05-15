@@ -2,9 +2,13 @@
 import { onMounted } from 'vue'
 import CTASection from '@/components/CTASection.vue'
 import ServiceCard from '@/components/ServiceCard.vue'
-import { services } from '@/data/content'
+import { useServicesStore } from '@/stores/services'
 
-onMounted(() => {
+const servicesStore = useServicesStore()
+
+onMounted(async () => {
+  await servicesStore.fetchServices()
+
   const observer = new IntersectionObserver(
     (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
     { threshold: 0.1 },
@@ -51,7 +55,24 @@ onMounted(() => {
     <section class="section-padding bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in-up">
-          <ServiceCard v-for="service in services" :key="service.id" :service="service" />
+          <!-- Loading skeleton -->
+          <template v-if="servicesStore.loading">
+            <div v-for="n in 6" :key="n" class="bg-gray-100 rounded-2xl h-64 animate-pulse" />
+          </template>
+          <!-- Error state -->
+          <div
+            v-else-if="servicesStore.error"
+            class="col-span-3 text-center py-10 text-red-500"
+          >
+            {{ servicesStore.error }}
+          </div>
+          <!-- Data -->
+          <ServiceCard
+            v-else
+            v-for="service in servicesStore.services"
+            :key="service.id"
+            :service="service"
+          />
         </div>
       </div>
     </section>

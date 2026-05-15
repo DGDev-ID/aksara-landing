@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import {
   ArrowRight,
   Play,
@@ -14,9 +14,11 @@ import {
 import CTASection from '@/components/CTASection.vue'
 import ServiceCard from '@/components/ServiceCard.vue'
 import HeroCanvas from '@/components/HeroCanvas.vue'
-import { services, stats, testimonials } from '@/data/content'
+import { stats, testimonials } from '@/data/content'
+import { useServicesStore } from '@/stores/services'
 
-const highlightServices = services.slice(0, 6)
+const servicesStore = useServicesStore()
+const highlightServices = computed(() => servicesStore.services.slice(0, 6))
 
 const whyUs = [
   {
@@ -58,7 +60,9 @@ const clients = [
 ]
 
 // Intersection Observer for fade-in
-onMounted(() => {
+onMounted(async () => {
+  await servicesStore.fetchServices()
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {

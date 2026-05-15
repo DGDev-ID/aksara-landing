@@ -41,30 +41,12 @@ const isActive = (path: string) => {
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-18 py-3">
         <!-- Logo -->
-        <RouterLink to="/" class="flex items-center gap-3 group">
-          <div
-            class="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center shadow-lg shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-all"
-          >
-            <span class="text-white font-black text-lg">A</span>
-          </div>
-          <div>
-            <div
-              :class="[
-                'font-extrabold text-lg leading-tight transition-colors',
-                isScrolled ? 'text-gray-900' : 'text-white drop-shadow',
-              ]"
-            >
-              Aksara
-            </div>
-            <div
-              :class="[
-                'text-xs font-medium leading-tight transition-colors',
-                isScrolled ? 'text-blue-600' : 'text-blue-200',
-              ]"
-            >
-              Media Promosi
-            </div>
-          </div>
+        <RouterLink to="/" class="flex items-center gap-2 group">
+          <img
+            src="/logo-aksara.svg"
+            alt="Aksara Media Promosi"
+            class="h-10 w-auto object-contain transition-transform group-hover:scale-105"
+          />
         </RouterLink>
 
         <!-- Desktop Nav -->

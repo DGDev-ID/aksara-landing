@@ -2,27 +2,33 @@
 import { ref, computed, onMounted } from 'vue'
 import CTASection from '@/components/CTASection.vue'
 import PortfolioCard from '@/components/PortfolioCard.vue'
-import { portfolioItems } from '@/data/content'
-import type { PortfolioItem } from '@/data/content'
+import { usePortfolioStore } from '@/stores/portfolio'
 
-const categories = [
-  'Semua',
-  'Website',
-  'Branding',
-  'Social Media',
-  'Advertising',
-  'Outdoor Media',
-] as const
-type Category = (typeof categories)[number]
+const portfolioStore = usePortfolioStore()
 
-const activeCategory = ref<Category>('Semua')
+const activeCategory = ref('Semua')
 
-const filtered = computed<PortfolioItem[]>(() => {
-  if (activeCategory.value === 'Semua') return portfolioItems
-  return portfolioItems.filter((p) => p.category === activeCategory.value)
+// Kategori dari API, fallback derive dari items jika API gagal
+const categories = computed(() => {
+  if (portfolioStore.categories.length > 0) {
+    return ['Semua', ...portfolioStore.categories.map((c) => c.name)]
+  }
+  const unique = [...new Set(portfolioStore.items.map((p) => p.category))].sort()
+  return ['Semua', ...unique]
 })
 
-onMounted(() => {
+const filtered = computed(() => {
+  if (activeCategory.value === 'Semua') return portfolioStore.items
+  return portfolioStore.items.filter((p) => p.category === activeCategory.value)
+})
+
+onMounted(async () => {
+  // Fetch paralel: categories & items
+  await Promise.all([
+    portfolioStore.fetchCategories(),
+    portfolioStore.fetchPortfolio(),
+  ])
+
   const observer = new IntersectionObserver(
     (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
     { threshold: 0.1 },
@@ -85,7 +91,16 @@ onMounted(() => {
         <!-- Grid -->
         <Transition name="page" mode="out-in">
           <div :key="activeCategory" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <PortfolioCard v-for="item in filtered" :key="item.id" :item="item" />
+            <!-- Loading skeleton -->
+            <template v-if="portfolioStore.loading">
+              <div v-for="n in 6" :key="n" class="bg-gray-100 rounded-2xl aspect-4/3 animate-pulse" />
+            </template>
+            <!-- Error state -->
+            <div v-else-if="portfolioStore.error" class="col-span-3 text-center py-10 text-red-500">
+              {{ portfolioStore.error }}
+            </div>
+            <!-- Data -->
+            <PortfolioCard v-else v-for="item in filtered" :key="item.id" :item="item" />
           </div>
         </Transition>
       </div>

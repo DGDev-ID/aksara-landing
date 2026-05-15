@@ -29,10 +29,9 @@ const categoryColor: Record<string, string> = {
       />
       <!-- Overlay -->
       <div
-        class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end"
+        class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end"
       >
         <div class="p-5 w-full">
-          <p class="text-white text-sm leading-relaxed mb-3">{{ item.description }}</p>
           <div class="flex flex-wrap gap-2">
             <span
               v-for="tag in item.tags"

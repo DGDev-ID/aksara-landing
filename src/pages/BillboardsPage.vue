@@ -3,11 +3,9 @@ import { ref, computed, onMounted } from 'vue'
 import { Search, MapPin, X } from 'lucide-vue-next'
 import BillboardMap from '@/components/BillboardMap.vue'
 import BillboardSidebar from '@/components/BillboardSidebar.vue'
-import { billboards, billboardCities, billboardTypes } from '@/data/billboards'
+import { useBillboardsStore } from '@/stores/billboards'
 
-// Future-ready: swap this for an API call
-// const billboards = ref<Billboard[]>([])
-// onMounted(async () => { billboards.value = await fetch('/api/billboards').then(r => r.json()) })
+const billboardsStore = useBillboardsStore()
 
 const selectedId = ref<number | null>(null)
 const searchQuery = ref('')
@@ -15,7 +13,7 @@ const selectedCity = ref('')
 const selectedType = ref('')
 
 const filteredBillboards = computed(() => {
-  return billboards.filter((b) => {
+  return billboardsStore.billboards.filter((b) => {
     const matchSearch =
       !searchQuery.value ||
       b.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
@@ -43,8 +41,14 @@ const stats = computed(() => ({
   booked: filteredBillboards.value.filter((b) => b.status === 'Booked').length,
 }))
 
+// Computed city/type lists from store
+const billboardCities = computed(() => billboardsStore.cities)
+const billboardTypes = computed(() => billboardsStore.types)
+
 // Scroll animation
-onMounted(() => {
+onMounted(async () => {
+  await billboardsStore.fetchBillboards()
+
   const observer = new IntersectionObserver(
     (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
     { threshold: 0.1 },
@@ -173,9 +177,20 @@ onMounted(() => {
 
     <!-- Main Content: Map + Sidebar -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <!-- Loading state -->
+      <div v-if="billboardsStore.loading" class="flex items-center justify-center h-80 text-gray-400">
+        <div class="text-center">
+          <div class="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
+          <p class="text-sm font-medium">Memuat data billboard...</p>
+        </div>
+      </div>
+      <!-- Error state -->
+      <div v-else-if="billboardsStore.error" class="flex items-center justify-center h-80 text-red-500">
+        {{ billboardsStore.error }}
+      </div>
       <!-- Mobile: stack vertically (map first, then list) -->
       <!-- Desktop: side-by-side with fixed viewport height -->
-      <div class="flex flex-col lg:flex-row lg:gap-6 lg:h-[calc(100vh-220px)] lg:min-h-150">
+      <div v-else class="flex flex-col lg:flex-row lg:gap-6 lg:h-[calc(100vh-220px)] lg:min-h-150">
         <!-- Map — mobile: fixed height 320px, desktop: flex-1 -->
         <div
           class="w-full h-80 lg:h-auto lg:flex-1 rounded-2xl overflow-hidden shadow-xl border border-gray-200 mb-4 lg:mb-0 order-1 lg:order-2"

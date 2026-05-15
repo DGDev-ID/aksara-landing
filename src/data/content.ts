@@ -5,6 +5,7 @@ export interface Service {
   description: string
   features: string[]
   category: string
+  badge?: string | null
   popular?: boolean
 }
 
@@ -101,22 +102,21 @@ export interface PortfolioItem {
   title: string
   client: string
   category: 'Website' | 'Branding' | 'Social Media' | 'Advertising' | 'Outdoor Media'
-  description: string
   tags: string[]
   image: string
   year: number
 }
 
 export const portfolioItems: PortfolioItem[] = [
-  { id: 1, title: 'Website Company Profile PT Maju Bersama', client: 'PT Maju Bersama', category: 'Website', description: 'Website perusahaan manufaktur modern dengan animasi smooth dan CMS terintegrasi.', tags: ['Vue.js', 'Tailwind', 'Laravel'], image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&q=80', year: 2025 },
-  { id: 2, title: 'Rebranding Kopi Nusantara', client: 'Kopi Nusantara', category: 'Branding', description: 'Transformasi brand kopi lokal menjadi premium modern dengan identitas visual baru.', tags: ['Logo Design', 'Brand Identity', 'Packaging'], image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80', year: 2025 },
-  { id: 3, title: 'Meta Ads Hotel Alam Asri', client: 'Hotel Alam Asri', category: 'Advertising', description: 'Campaign iklan Meta Ads dengan ROAS 4.2x untuk hotel bintang 3 di Yogyakarta.', tags: ['Meta Ads', 'Facebook', 'Instagram'], image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&q=80', year: 2024 },
-  { id: 4, title: 'Billboard Kampanye Pemilukada', client: 'Tim Sukses A', category: 'Outdoor Media', description: '50+ titik billboard strategis se-Jawa Tengah untuk kampanye Pemilukada 2024.', tags: ['Billboard', 'Outdoor', 'Design'], image: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80', year: 2024 },
-  { id: 5, title: 'Social Media Manajemen Bakeri Artisan', client: 'Bakeri Artisan', category: 'Social Media', description: 'Pertumbuhan 300% followers Instagram dalam 6 bulan dengan konten daily kreatif.', tags: ['Instagram', 'Content', 'Reels'], image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80', year: 2025 },
-  { id: 6, title: 'E-Commerce Platform Batik Larasati', client: 'Batik Larasati', category: 'Website', description: 'Platform e-commerce batik dengan fitur custom order, tracking, dan payment gateway.', tags: ['Vue.js', 'Node.js', 'Midtrans'], image: 'https://images.unsplash.com/photo-1605289982774-9a6fef564df8?w=600&q=80', year: 2025 },
-  { id: 7, title: 'Branding Klinik Sehat Prima', client: 'Klinik Sehat Prima', category: 'Branding', description: 'Identitas visual klinik kesehatan: logo, seragam, signage, dan materi digital.', tags: ['Logo', 'Medical', 'Signage'], image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80', year: 2024 },
-  { id: 8, title: 'Videotron Promosi Festival Kuliner', client: 'Pemkot Semarang', category: 'Outdoor Media', description: 'Tayangan videotron untuk event Festival Kuliner Nusantara di 5 titik kota Semarang.', tags: ['Videotron', 'Event', 'Motion Design'], image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', year: 2025 },
-  { id: 9, title: 'Google Ads Properti Grand Residence', client: 'Grand Residence', category: 'Advertising', description: 'Lead generation properti dengan Google Ads, CPC efisien dan konversi tinggi.', tags: ['Google Ads', 'Property', 'SEM'], image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80', year: 2024 },
+  { id: 1, title: 'Website Company Profile PT Maju Bersama', client: 'PT Maju Bersama', category: 'Website', tags: ['Vue.js', 'Tailwind', 'Laravel'], image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&q=80', year: 2025 },
+  { id: 2, title: 'Rebranding Kopi Nusantara', client: 'Kopi Nusantara', category: 'Branding', tags: ['Logo Design', 'Brand Identity', 'Packaging'], image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80', year: 2025 },
+  { id: 3, title: 'Meta Ads Hotel Alam Asri', client: 'Hotel Alam Asri', category: 'Advertising', tags: ['Meta Ads', 'Facebook', 'Instagram'], image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&q=80', year: 2024 },
+  { id: 4, title: 'Billboard Kampanye Pemilukada', client: 'Tim Sukses A', category: 'Outdoor Media', tags: ['Billboard', 'Outdoor', 'Design'], image: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80', year: 2024 },
+  { id: 5, title: 'Social Media Manajemen Bakeri Artisan', client: 'Bakeri Artisan', category: 'Social Media', tags: ['Instagram', 'Content', 'Reels'], image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80', year: 2025 },
+  { id: 6, title: 'E-Commerce Platform Batik Larasati', client: 'Batik Larasati', category: 'Website', tags: ['Vue.js', 'Node.js', 'Midtrans'], image: 'https://images.unsplash.com/photo-1605289982774-9a6fef564df8?w=600&q=80', year: 2025 },
+  { id: 7, title: 'Branding Klinik Sehat Prima', client: 'Klinik Sehat Prima', category: 'Branding', tags: ['Logo', 'Medical', 'Signage'], image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80', year: 2024 },
+  { id: 8, title: 'Videotron Promosi Festival Kuliner', client: 'Pemkot Semarang', category: 'Outdoor Media', tags: ['Videotron', 'Event', 'Motion Design'], image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', year: 2025 },
+  { id: 9, title: 'Google Ads Properti Grand Residence', client: 'Grand Residence', category: 'Advertising', tags: ['Google Ads', 'Property', 'SEM'], image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80', year: 2024 },
 ]
 
 export const testimonials = [

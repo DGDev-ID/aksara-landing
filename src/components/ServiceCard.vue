@@ -24,12 +24,12 @@ const categoryColor: Record<string, string> = {
   <div
     class="group relative bg-white rounded-2xl p-6 border border-gray-100 card-hover shadow-sm hover:border-blue-200"
   >
-    <!-- Popular badge -->
+    <!-- Badge (dari API) -->
     <div
-      v-if="service.popular"
+      v-if="service.badge"
       class="absolute -top-3 -right-3 bg-gradient-to-r from-blue-600 to-blue-400 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg shadow-blue-500/30"
     >
-      Popular
+      {{ service.badge }}
     </div>
 
     <!-- Icon -->

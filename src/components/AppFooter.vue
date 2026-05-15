@@ -27,16 +27,12 @@ const quickLinks = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         <!-- Brand -->
         <div class="lg:col-span-1">
-          <RouterLink to="/" class="flex items-center gap-3 mb-5">
-            <div
-              class="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center shadow-lg"
-            >
-              <span class="text-white font-black text-lg">A</span>
-            </div>
-            <div>
-              <div class="font-extrabold text-lg leading-tight text-white">Aksara</div>
-              <div class="text-xs font-medium text-blue-400 leading-tight">Media Promosi</div>
-            </div>
+          <RouterLink to="/" class="flex items-center gap-2 mb-5">
+            <img
+              src="/logo-aksara.svg"
+              alt="Aksara Media Promosi"
+              class="h-10 w-auto object-contain"
+            />
           </RouterLink>
           <p class="text-gray-400 text-sm leading-relaxed mb-5">
             Agency periklanan dan digital marketing terpercaya di Jawa Tengah & DIY. Kami hadir
