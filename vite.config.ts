@@ -15,9 +15,9 @@ export default defineConfig({
   },
   server: {
     middlewareMode: true,
-    allowedHosts: ['aksaramediapromomsi.com', 'localhost', '127.0.0.1'],
+    allowedHosts: ['aksaramediapromosi.com', 'localhost', '127.0.0.1'],
   },
   preview: {
-    allowedHosts: ['aksaramediapromomsi.com', 'localhost', '127.0.0.1'],
+    allowedHosts: ['aksaramediapromosi.com', 'localhost', '127.0.0.1'],
   },
 })
