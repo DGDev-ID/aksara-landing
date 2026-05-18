@@ -2,21 +2,21 @@
 import { onMounted } from 'vue'
 import { Target, Eye, CheckCircle } from 'lucide-vue-next'
 import CTASection from '@/components/CTASection.vue'
-import { stats, teamMembers } from '@/data/content'
+import { stats } from '@/data/content'
 
 const timeline = [
   {
-    year: '2016',
+    year: '2019',
     title: 'Berdiri',
-    desc: 'Aksara Media Promosi didirikan di Yogyakarta sebagai agency kreatif lokal.',
+    desc: 'Aksara Media Promosi didirikan di Semarang sebagai agency kreatif lokal yang fokus pada media reklame dan promosi.',
   },
   {
-    year: '2018',
+    year: '2020',
     title: 'Ekspansi Digital',
     desc: 'Merambah layanan digital marketing: social media, SEO, dan paid ads.',
   },
   {
-    year: '2020',
+    year: '2021',
     title: 'Outdoor Network',
     desc: 'Membangun jaringan billboard dan videotron di Jawa Tengah & DIY.',
   },
@@ -233,32 +233,6 @@ onMounted(() => {
                 Mengutamakan kualitas produksi dan ketepatan waktu dalam setiap proyek.
               </li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Team -->
-    <section class="section-padding gradient-bg-light">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 fade-in-up">
-          <span class="text-blue-600 font-bold text-sm uppercase tracking-widest">Tim Kami</span>
-          <h2 class="text-4xl font-extrabold text-gray-900 mt-2">Orang-Orang di Balik Aksara</h2>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-in-up">
-          <div
-            v-for="member in teamMembers"
-            :key="member.id"
-            class="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm card-hover"
-          >
-            <div
-              class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mx-auto mb-4 text-white font-black text-xl shadow-lg shadow-blue-500/30"
-            >
-              {{ member.avatar }}
-            </div>
-            <h4 class="font-bold text-gray-900 mb-1">{{ member.name }}</h4>
-            <p class="text-blue-600 text-sm font-semibold mb-3">{{ member.position }}</p>
-            <p class="text-gray-500 text-xs leading-relaxed">{{ member.bio }}</p>
           </div>
         </div>
       </div>

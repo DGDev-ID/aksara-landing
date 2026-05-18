@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowRight } from 'lucide-vue-next'
-import ContactForm from '@/components/ContactForm.vue'
 
 onMounted(() => {
   const observer = new IntersectionObserver(
@@ -87,10 +86,10 @@ const contactInfo = [
 
     <!-- Contact Content -->
     <section class="py-20 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-5 gap-10">
-          <!-- Left: Info & Map -->
-          <div class="lg:col-span-2 space-y-6">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <!-- Left: WhatsApp CTA + Info -->
+          <div class="space-y-6">
             <!-- WhatsApp CTA -->
             <div class="fade-in-up visible bg-green-50 border border-green-200 rounded-2xl p-6">
               <div class="flex items-center gap-3 mb-3">
@@ -155,12 +154,11 @@ const contactInfo = [
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- Google Maps Embed -->
-            <div
-              class="fade-in-up visible rounded-2xl overflow-hidden border border-gray-200 shadow-sm"
-              style="height: 220px"
-            >
+          <!-- Right: Google Maps -->
+          <div class="fade-in-up visible flex flex-col gap-6">
+            <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-sm flex-1" style="min-height: 400px">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.9792969201253!2d110.33533380000002!3d-7.019575099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b0007249dd3%3A0x65866bef7f46b4d1!2sAKSARA%20MEDIA%20PROMOSI!5e1!3m2!1sen!2sid!4v1777612694259!5m2!1sen!2sid"
                 width="100%"
@@ -171,19 +169,6 @@ const contactInfo = [
                 referrerpolicy="no-referrer-when-downgrade"
                 title="Lokasi Kantor Aksara Media Promosi"
               ></iframe>
-            </div>
-          </div>
-
-          <!-- Right: Consultation Form -->
-          <div class="lg:col-span-3 fade-in-up visible">
-            <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
-              <div class="mb-7">
-                <h2 class="text-2xl font-extrabold text-gray-900 mb-2">Form Konsultasi</h2>
-                <p class="text-gray-500 text-sm">
-                  Isi formulir berikut dan tim kami akan menghubungi Anda dalam 1x24 jam kerja.
-                </p>
-              </div>
-              <ContactForm />
             </div>
           </div>
         </div>

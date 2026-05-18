@@ -39,9 +39,9 @@ const socials = [
 
     <!-- Sticky Social Media Bar -->
     <div
-      class="fixed right-4 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-2"
+      class="fixed right-3 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-2"
     >
-      <div class="w-px h-10 bg-gray-300/60"></div>
+      <div class="w-px h-8 bg-gray-300/60 hidden md:block"></div>
       <a
         v-for="s in socials"
         :key="s.label"
@@ -50,14 +50,14 @@ const socials = [
         target="_blank"
         rel="noopener noreferrer"
         :class="[
-          'w-9 h-9 rounded-xl flex items-center justify-center text-gray-500 bg-white border border-gray-200 shadow-sm',
+          'w-8 h-8 md:w-9 md:h-9 rounded-xl flex items-center justify-center text-gray-500 bg-white border border-gray-200 shadow-sm',
           'transition-all duration-300 hover:text-white hover:scale-110 hover:shadow-md hover:border-transparent',
           s.hover,
         ]"
       >
-        <component :is="s.icon" :size="16" />
+        <component :is="s.icon" :size="15" />
       </a>
-      <div class="w-px h-10 bg-gray-300/60"></div>
+      <div class="w-px h-8 bg-gray-300/60 hidden md:block"></div>
     </div>
   </div>
 </template>

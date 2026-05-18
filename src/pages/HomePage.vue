@@ -45,6 +45,7 @@ const whyUs = [
 
 const clients = [
   { name: 'AQUA', logo: '/logo-klien/AQUA.svg' },
+  { name: 'BCA', logo: '/logo-klien/bca.svg' },
   { name: 'BNI', logo: '/logo-klien/BNI.svg' },
   { name: 'BRI', logo: '/logo-klien/BRI.svg' },
   { name: 'Ciputra', logo: '/logo-klien/CIPUTRA.svg' },
@@ -81,8 +82,7 @@ onMounted(async () => {
   <div>
     <!-- ===== HERO ===== -->
     <section
-      class="relative min-h-screen flex items-center overflow-hidden"
-      style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 40%, #2563eb 100%)"
+      class="relative min-h-screen flex items-center overflow-hidden bg-gray-900"
     >
       <!-- Background SVG utama -->
       <img
@@ -90,18 +90,18 @@ onMounted(async () => {
         alt=""
         aria-hidden="true"
         class="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-        style="z-index: 0; opacity: 0.55; mix-blend-mode: luminosity"
+        style="z-index: 0; opacity: 1"
       />
 
-      <!-- Blue gradient overlay agar warna biru tetap terasa tapi SVG masih terlihat -->
+      <!-- Dark overlay ringan untuk text readability -->
       <div
         class="absolute inset-0 pointer-events-none"
         style="
           background: linear-gradient(
             135deg,
-            rgba(15, 23, 42, 0.72) 0%,
-            rgba(30, 58, 138, 0.55) 40%,
-            rgba(37, 99, 235, 0.45) 100%
+            rgba(15, 23, 42, 0.15) 0%,
+            rgba(30, 58, 138, 0.45) 40%,
+            rgba(37, 99, 235, 0.25) 100%
           );
           z-index: 1;
         "
@@ -128,19 +128,19 @@ onMounted(async () => {
           <!-- Left content -->
           <div>
             <div
-              class="inline-flex items-center gap-2 bg-blue-500/20 text-blue-200 text-sm font-semibold px-4 py-2 rounded-full border border-blue-400/30 mb-6"
+              class="inline-flex items-center gap-3 bg-blue-500/50 text-white text-sm font-semibold px-5 py-2.5 rounded-full border border-blue-400/30 mb-6"
             >
-              <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-              Agency Media Promosi #1 Jawa Tengah & DIY
+              <span class="w-2 h-2 rounded-full bg-green-200 animate-pulse"></span>
+              <span>Agency Media Promosi #1 Jawa Tengah & DIY</span>
             </div>
 
             <h1 class="text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
               Promosikan Bisnis Anda
-              <span class="gradient-text-white"> Lebih Jauh, </span>
+              <span> Lebih Jauh, </span>
               Lebih Kuat.
             </h1>
 
-            <p class="text-blue-100 text-lg leading-relaxed mb-8 max-w-lg">
+            <p class="text-white text-lg leading-relaxed mb-8 max-w-lg">
               Platform media promosi lengkap — dari digital marketing, branding, website, hingga
               billboard & videotron outdoor. Satu partner, semua solusi promosi bisnis Anda.
             </p>
@@ -166,7 +166,7 @@ onMounted(async () => {
             <div class="grid grid-cols-4 gap-4">
               <div v-for="stat in stats" :key="stat.label">
                 <div class="text-2xl sm:text-3xl font-black text-white">{{ stat.number }}</div>
-                <div class="text-blue-300 text-xs sm:text-sm font-medium">{{ stat.label }}</div>
+                <div class="text-blue-200 text-xs sm:text-sm font-semibold">{{ stat.label }}</div>
               </div>
             </div>
           </div>

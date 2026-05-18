@@ -14,7 +14,9 @@ export default defineConfig({
     },
   },
   server: {
-    middlewareMode: true,
+    host: '127.0.0.1',
+    port: 5173,
+    strictPort: false,
     allowedHosts: ['aksaramediapromosi.com', 'localhost', '127.0.0.1'],
   },
   preview: {
